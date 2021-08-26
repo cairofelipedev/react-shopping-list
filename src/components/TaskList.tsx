@@ -83,12 +83,15 @@ export function TaskList() {
         <h2>Origem da Compra</h2>
 
         <div className="input-group-select">
-          <select value={newRazaoSocial}>
+          <select
+            onChange={(f) => setNewRazaoSocial(f.target.value)}
+            value={newRazaoSocial}
+          >
             <option value="A">Shopping</option>
             <option value="B">Online</option>
             <option value="C">Mercado</option>
           </select>
-          <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask}>
+          <button type="submit" data-testid="add-task-button" onClick={handleNewOrigem}>
             <FiCheckSquare size={16} color="#fff" />
           </button>
         </div>
@@ -111,6 +114,20 @@ export function TaskList() {
               </div>
 
               <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
+                <FiTrash size={16} />
+              </button>
+            </li>
+          ))}
+
+        </ul>
+        <ul>
+          {origem.map(origs => (
+            <li key={origs.id}>
+              <div data-testid="origem" >
+              <p>{origs.razaoSocial}</p>
+              </div>
+             
+              <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(origs.id)}>
                 <FiTrash size={16} />
               </button>
             </li>
