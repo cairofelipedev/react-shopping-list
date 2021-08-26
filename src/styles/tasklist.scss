@@ -59,6 +59,47 @@ section.task-list {
         }
       }
     }
+    .input-group-select {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+
+      background: #fff;
+      font-size: 16px;
+      
+      select {
+        flex: 1;
+        background: var(--background);
+        border: 0;
+        color: var(--text);
+        padding: 12px 24px;
+        
+        border-radius: 8px;
+        border: 0;
+        
+        &::placeholder {
+          color: var(--text-light)
+        }
+      }
+
+      button {
+        font-weight: 600;
+        border-radius: 8px;
+        border: 0;
+        background: var(--blue);
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        padding: 14px;
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.95);
+        }
+      }
+    }
   }
 
   main {
