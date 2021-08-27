@@ -19,10 +19,32 @@ export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
-  const [origem, setOrigem] = useState<Origem[]>([]);
+  const [origs, setOrigem] = useState<Origem[]>([]);
   const [newRazaoSocial, setNewRazaoSocial] = useState('');
 
   function handleNewOrigem() {
+
+    state = {
+      options: [
+        {
+          name: 'Select…',
+          value: null,
+        },
+        {
+          name: 'A',
+          value: 'a',
+        },
+        {
+          name: 'B',
+          value: 'b',
+        },
+        {
+          name: 'C',
+          value: 'c',
+        },
+      ],
+      value: '?',
+    };
 
     const newOrigem = {
       id: Math.random(),
@@ -31,6 +53,7 @@ export function TaskList() {
     setOrigem(oldState => [...oldState, newOrigem]);
     setNewRazaoSocial('');
   }
+
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
@@ -121,13 +144,13 @@ export function TaskList() {
 
         </ul>
         <ul>
-          {origem.map(origs => (
-            <li key={origs.id}>
+          {origs.map(origem => (
+            <li key={origem.id}>
               <div data-testid="origem" >
-              <p>{origs.razaoSocial}</p>
+              <p>{origem.razaoSocial}</p>
               </div>
              
-              <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(origs.id)}>
+              <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(origem.id)}>
                 <FiTrash size={16} />
               </button>
             </li>
