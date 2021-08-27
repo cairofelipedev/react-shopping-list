@@ -21,30 +21,9 @@ export function TaskList() {
 
   const [origs, setOrigem] = useState<Origem[]>([]);
   const [newRazaoSocial, setNewRazaoSocial] = useState('');
+  
 
   function handleNewOrigem() {
-
-    state = {
-      options: [
-        {
-          name: 'Select…',
-          value: null,
-        },
-        {
-          name: 'A',
-          value: 'a',
-        },
-        {
-          name: 'B',
-          value: 'b',
-        },
-        {
-          name: 'C',
-          value: 'c',
-        },
-      ],
-      value: '?',
-    };
 
     const newOrigem = {
       id: Math.random(),
